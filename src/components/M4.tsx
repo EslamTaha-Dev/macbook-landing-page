@@ -22,7 +22,7 @@ const M4 = () => {
         .to(".mask img", {
           scale: 1.15,
         })
-        .to(".content", { opacity: 1, y: 0, ease: "power2.out" });
+        .to(".content", { opacity: 1, y: 0, ease: "power2.out", delay: 0.25 });
     }
   }, [isMobile]);
   return (

@@ -29,7 +29,6 @@ const Product = () => {
           <div className="color-control">
             <div
               role="button"
-              tabIndex={0}
               onClick={() => setColor("#7D7E80")}
               onKeyDown={(event) => {
                 if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
@@ -44,7 +43,6 @@ const Product = () => {
             />
             <div
               role="button"
-              tabIndex={0}
               onClick={() => setColor("#2B2B2D")}
               onKeyDown={(event) => {
                 if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
@@ -61,7 +59,6 @@ const Product = () => {
           <div className="size-control">
             <div
               role="button"
-              tabIndex={0}
               onClick={() => setScale(0.06)}
               onKeyDown={(event) => {
                 if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
