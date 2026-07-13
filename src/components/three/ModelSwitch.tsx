@@ -3,13 +3,17 @@ import * as THREE from "three";
 import MacbookModel16 from "../models/Macbook-16";
 import MacBookModel14 from "../models/Macbook-14";
 import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 
 const Animation: number = 1;
 const Offset: number = 5;
 
-const fadeMeshes = (group: THREE.Group | null, opacity: number) => {
+const fadeMeshes = (
+  group: THREE.Group | null,
+  opacity: number,
+  immediate = false,
+) => {
   if (!group) return;
   group.traverse((child) => {
     if (child instanceof THREE.Mesh) {
@@ -18,19 +22,21 @@ const fadeMeshes = (group: THREE.Group | null, opacity: number) => {
         opacity: number;
       };
       child.material.transparent = true;
-      gsap.to(material, {
+      const action = immediate ? gsap.set : gsap.to;
+      action(material, {
         opacity,
-        duration: Animation,
+        duration: immediate ? 0 : Animation,
       });
     }
   });
 };
 
-const moveGroup = (group: THREE.Group | null, x: number) => {
+const moveGroup = (group: THREE.Group | null, x: number, immediate = false) => {
   if (!group) return;
-  gsap.to(group.position, {
+  const action = immediate ? gsap.set : gsap.to;
+  action(group.position, {
     x,
-    duration: Animation,
+    duration: immediate ? 0 : Animation,
   });
 };
 
@@ -44,6 +50,16 @@ const ModelSwitch = ({
   // console.log("scale received:", scale);
   const smallMacRef = useRef<THREE.Group>(null);
   const largeMacRef = useRef<THREE.Group>(null);
+
+  useLayoutEffect(() => {
+    if (!smallMacRef.current || !largeMacRef.current) return;
+    
+    smallMacRef.current.position.x = -Offset;
+    largeMacRef.current.position.x = 0;
+
+    fadeMeshes(smallMacRef.current, 0, true);
+    fadeMeshes(largeMacRef.current, 1, true);
+  }, []);
 
   useGSAP(() => {
     if (isLargeMac) {
@@ -76,17 +92,17 @@ const ModelSwitch = ({
 
   return (
     <>
-      <PresentationControls {...controlsConfig}>
-        <group ref={largeMacRef}>
+      <group ref={largeMacRef}>
+        <PresentationControls {...controlsConfig}>
           <MacbookModel16 scale={isMobile ? 0.05 : 0.08} />
-        </group>
-      </PresentationControls>
+        </PresentationControls>
+      </group>
 
-      <PresentationControls {...controlsConfig}>
-        <group ref={smallMacRef}>
+      <group ref={smallMacRef}>
+        <PresentationControls {...controlsConfig}>
           <MacBookModel14 scale={isMobile ? 0.03 : 0.06} />
-        </group>
-      </PresentationControls>
+        </PresentationControls>
+      </group>
     </>
   );
 };
