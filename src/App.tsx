@@ -1,4 +1,5 @@
 import Hero from "./components/Hero.tsx";
+import M4 from "./components/M4.tsx";
 import NavBar from "./components/NavBar.tsx";
 import Product from "./components/Product.tsx";
 import gsap from "gsap";
@@ -13,6 +14,7 @@ const App = () => {
       <main>
         <Hero />
         <Product />
+        <M4 />
       </main>
     </>
   );

@@ -180,7 +180,7 @@ body {
     }
   }
 
-  #showcase {
+  #m4 {
     @apply relative;
 
     .media {
@@ -195,12 +195,12 @@ body {
 
         img {
           @apply h-full scale-150 lg:scale-100;
-          transform: matrix(80, 0, 0, 80, 0, 0);
+          transform: scale(80);
         }
 
         @media (max-width: 1024px) {
           img {
-            transform: matrix(1, 0, 0, 1, 0, 0);
+            transform: scale(1);
           }
         }
       }
