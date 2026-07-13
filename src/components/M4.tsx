@@ -58,11 +58,11 @@ const M4 = () => {
                 to your fingertips.
               </p>
               <p className="text-primary">
-                <a href="#" className="flex items-center">
+                <a href="/apple-intelligence" className="flex items-center">
                   Learn more about Apple Intelligence{" "}
                   <ChevronRight size={20} strokeWidth={4} />
                 </a>
-              </p>
+              </p>{" "}
             </div>
           </div>
           <div className="max-w-3xs space-y-14">
