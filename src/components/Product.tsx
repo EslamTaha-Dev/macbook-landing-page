@@ -31,7 +31,11 @@ const Product = () => {
               role="button"
               onClick={() => setColor("#7D7E80")}
               onKeyDown={(event) => {
-                if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
+                if (
+                  event.key === "Enter" ||
+                  event.key === " " ||
+                  event.key === "Spacebar"
+                ) {
                   event.preventDefault();
                   setColor("#7D7E80");
                 }
@@ -45,7 +49,11 @@ const Product = () => {
               role="button"
               onClick={() => setColor("#2B2B2D")}
               onKeyDown={(event) => {
-                if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
+                if (
+                  event.key === "Enter" ||
+                  event.key === " " ||
+                  event.key === "Spacebar"
+                ) {
                   event.preventDefault();
                   setColor("#2B2B2D");
                 }
@@ -61,7 +69,11 @@ const Product = () => {
               role="button"
               onClick={() => setScale(0.06)}
               onKeyDown={(event) => {
-                if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
+                if (
+                  event.key === "Enter" ||
+                  event.key === " " ||
+                  event.key === "Spacebar"
+                ) {
                   event.preventDefault();
                   setScale(0.06);
                 }
@@ -78,7 +90,11 @@ const Product = () => {
               role="button"
               onClick={() => setScale(0.08)}
               onKeyDown={(event) => {
-                if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
+                if (
+                  event.key === "Enter" ||
+                  event.key === " " ||
+                  event.key === "Spacebar"
+                ) {
                   event.preventDefault();
                   setScale(0.08);
                 }

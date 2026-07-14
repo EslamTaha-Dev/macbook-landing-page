@@ -3,7 +3,7 @@ import M4 from "./components/M4.tsx";
 import NavBar from "./components/NavBar.tsx";
 import Product from "./components/Product.tsx";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Performance from "./components/Performance.tsx";
 import Feature from "./components/Feature.tsx";
 import Footer from "./components/Footer.tsx";

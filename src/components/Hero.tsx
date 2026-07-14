@@ -12,15 +12,9 @@ const Hero = () => {
     <section id="Hero">
       <div>
         <h1>MacBook Pro</h1>
-        <img src="/public/title.png" alt="" />
+        <img src="/title.png" alt="" />
       </div>
-      <video
-        ref={videoRef}
-        src="/public/videos/hero.mp4"
-        autoPlay
-        muted
-        playsInline
-      />
+      <video ref={videoRef} src="/videos/hero.mp4" autoPlay muted playsInline />
       <button>Buy</button>
       <p>From $1599 or $133.25/mo. for 12 mo.</p>
     </section>
