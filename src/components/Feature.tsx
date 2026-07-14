@@ -1,8 +1,8 @@
 import { Canvas } from "@react-three/fiber";
 import Studio from "./three/Studio";
-import { features, featureSequence } from "../constants";
+import { features, featureSteps } from "../constants";
 import clsx from "clsx";
-import { Suspense, useEffect, useRef } from "react";
+import { Suspense, useRef } from "react";
 import MacbookModel from "./models/Macbook";
 import { useMediaQuery } from "react-responsive";
 import { Html } from "@react-three/drei";
@@ -15,20 +15,6 @@ const Scroll = () => {
   const groupRef = useRef<Group | null>(null);
   const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
   const { setTexture } = useMacbook();
-
-  useEffect(() => {
-    featureSequence.forEach((feature) => {
-      const vid = document.createElement("video");
-      Object.assign(vid, {
-        src: feature.videoPath,
-        muted: true,
-        playsInline: true,
-        preload: "auto",
-        crossOrigin: "anonymous",
-      });
-      vid.load();
-    });
-  }, []);
 
   useGSAP(() => {
     const modtimeline = gsap.timeline({
@@ -57,32 +43,14 @@ const Scroll = () => {
       });
     }
 
-    timeline
-      .call(() => setTexture("/videos/feature-1.mp4"))
-      .to(".box1", {
-        opacity: 1,
-        y: 0,
-      })
-      .call(() => setTexture("/videos/feature-2.mp4"))
-      .to(".box2", {
-        opacity: 1,
-        y: 0,
-      })
-      .call(() => setTexture("/videos/feature-3.mp4"))
-      .to(".box3", {
-        opacity: 1,
-        y: 0,
-      })
-      .call(() => setTexture("/videos/feature-4.mp4"))
-      .to(".box4", {
-        opacity: 1,
-        y: 0,
-      })
-      .call(() => setTexture("/videos/feature-5.mp4"))
-      .to(".box5", {
-        opacity: 1,
-        y: 0,
-      });
+    featureSteps.forEach((step) => {
+      timeline
+        .call(() => setTexture(step.index))
+        .to(step.box, {
+          opacity: 1,
+          y: 0,
+        });
+    });
   }, []);
 
   return (

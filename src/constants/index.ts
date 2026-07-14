@@ -92,12 +92,12 @@ const features = [
   },
 ];
 
-const featureSequence = [
-  { videoPath: "/videos/feature-1.mp4", boxClass: ".box1", delay: 1 },
-  { videoPath: "/videos/feature-2.mp4", boxClass: ".box2", delay: 0 },
-  { videoPath: "/videos/feature-3.mp4", boxClass: ".box3", delay: 0 },
-  { videoPath: "/videos/feature-4.mp4", boxClass: ".box4", delay: 0 },
-  { videoPath: "/videos/feature-5.mp4", boxClass: ".box5", delay: 0 },
+const featureSteps = [
+  { index: 0, box: ".box1" },
+  { index: 1, box: ".box2" },
+  { index: 2, box: ".box3" },
+  { index: 3, box: ".box4" },
+  { index: 4, box: ".box5" },
 ];
 
 const footerLinks = [
@@ -110,7 +110,7 @@ const footerLinks = [
 
 export {
   features,
-  featureSequence,
+  featureSteps,
   footerLinks,
   NavLinks,
   noChangeParts,

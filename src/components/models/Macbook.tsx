@@ -9,7 +9,7 @@ Title: macbook pro M3 16 inch 2024
 */
 
 import * as THREE from "three";
-import React, { useEffect, type JSX } from "react";
+import React, { useEffect, useMemo, type JSX } from "react";
 import { useGLTF, useVideoTexture } from "@react-three/drei";
 import type { GLTF } from "three-stdlib";
 import useMacbook from "../../store";
@@ -66,7 +66,14 @@ export default function MacbookModel(props: JSX.IntrinsicElements["group"]) {
     "/models/macbook-transformed.glb",
   ) as unknown as GLTFResult;
 
-  const screen = useVideoTexture(texture);
+  const t1 = useVideoTexture("/videos/feature-1.mp4");
+  const t2 = useVideoTexture("/videos/feature-2.mp4");
+  const t3 = useVideoTexture("/videos/feature-3.mp4");
+  const t4 = useVideoTexture("/videos/feature-4.mp4");
+  const t5 = useVideoTexture("/videos/feature-5.mp4");
+
+  const textures = useMemo(() => [t1, t2, t3, t4, t5], [t1, t2, t3, t4, t5]);
+  const screen = textures[texture];
 
   useEffect(() => {
     scene.traverse((child) => {
@@ -168,10 +175,7 @@ export default function MacbookModel(props: JSX.IntrinsicElements["group"]) {
         material={materials.JvMFZolVCdpPqjj}
         rotation={[Math.PI / 2, 0, 0]}
       />
-      <mesh
-        geometry={nodes.Object_123.geometry}
-        rotation={[Math.PI / 2, 0, 0]}
-      >
+      <mesh geometry={nodes.Object_123.geometry} rotation={[Math.PI / 2, 0, 0]}>
         <meshStandardMaterial map={screen} />
       </mesh>
       <mesh

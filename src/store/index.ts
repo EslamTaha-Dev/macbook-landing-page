@@ -7,8 +7,8 @@ interface MacbookStore {
   scale: number;
   setScale: (scale: number) => void;
 
-  texture: string;
-  setTexture: (texture: string) => void;
+  texture: number;
+  setTexture: (texture: number) => void;
 
   reset: () => void;
 }
@@ -20,10 +20,10 @@ const useMacbook = create<MacbookStore>((set) => ({
   scale: 0.08,
   setScale: (scale) => set({ scale }),
 
-  texture: "/videos/feature-1.mp4",
+  texture: 0,
   setTexture: (texture) => set({ texture }),
 
   reset: () =>
-    set({ color: "#7D7E80", scale: 0.08, texture: "/videos/feature-1.mp4" }),
+    set({ color: "#7D7E80", scale: 0.08, texture: 0 }),
 }));
 export default useMacbook;
