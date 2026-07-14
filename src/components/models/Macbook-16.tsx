@@ -82,7 +82,7 @@ export default function MacbookModel16(props: JSX.IntrinsicElements["group"]) {
           const material = child.material as THREE.Material & {
             color: THREE.Color;
           };
-          material.color = new THREE.Color(color);
+          material.color.set(color);
         }
       }
     });
@@ -175,10 +175,7 @@ export default function MacbookModel16(props: JSX.IntrinsicElements["group"]) {
         material={materials.JvMFZolVCdpPqjj}
         rotation={[Math.PI / 2, 0, 0]}
       />
-      <mesh
-        geometry={nodes.Object_123.geometry}
-        rotation={[Math.PI / 2, 0, 0]}
-      >
+      <mesh geometry={nodes.Object_123.geometry} rotation={[Math.PI / 2, 0, 0]}>
         <meshStandardMaterial map={texture} />
       </mesh>
       <mesh

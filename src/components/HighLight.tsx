@@ -5,19 +5,22 @@ import gsap from "gsap";
 const HighLight = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
 
-  useGSAP(() => {
-    gsap.to([".left", ".right"], {
-      scrollTrigger: {
-        trigger: ".masonry",
-        start: isMobile ? "bottom bottom" : "top center",
-      },
-      y: 0,
-      opacity: 1,
-      stagger: 0.5,
-      ease: "power1.inOut",
-      duration: 1,
-    });
-  });
+  useGSAP(
+    () => {
+      gsap.to([".left", ".right"], {
+        scrollTrigger: {
+          trigger: ".masonry",
+          start: isMobile ? "bottom bottom" : "top center",
+        },
+        y: 0,
+        opacity: 1,
+        stagger: 0.5,
+        ease: "power1.inOut",
+        duration: 1,
+      });
+    },
+    { dependencies: [isMobile] },
+  );
   return (
     <section id="high">
       <h2>There's never been a better time to upgrade.</h2>
