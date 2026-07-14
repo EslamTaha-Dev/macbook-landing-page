@@ -1,20 +1,31 @@
 import { footerLinks } from "../constants";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer>
       <div className="info">
         <p>
           {" "}
-          More ways to shop: <span>Find an Apple Store</span> or{" "}
-          <span>other retailer</span> near you. Or call 000800 040 1966.
+          More ways to shop:{" "}
+          <span>
+            <a href="https://www.apple.com/retail/">Find an Apple Store</a>
+          </span>{" "}
+          or{" "}
+          <span>
+            <a href="https://www.apple.com/retail/store-list/">
+              other retailer
+            </a>
+          </span>{" "}
+          near you. Or call 000800 040 1966.
         </p>
 
         <img src="/logo.svg" alt="Apple" />
       </div>
       <hr />
       <div className="links">
-        <p>Copyright © 2024 Apple Inc. All rights reserved.</p>
+        <p>Copyright © {currentYear} Apple Inc. All rights reserved.</p>
         <ul>
           {footerLinks.map(
             ({ label, link }: { label: string; link: string }) => (
