@@ -76,7 +76,6 @@ const Product = () => {
             </div>
             <div
               role="button"
-              tabIndex={0}
               onClick={() => setScale(0.08)}
               onKeyDown={(event) => {
                 if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
