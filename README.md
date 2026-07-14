@@ -158,7 +158,7 @@ Every commit pushed to GitHub is automatically reviewed by **[CodeRabbit](https:
 ## 👤 Author
 
 **Eslam Taha**
-Front-End Developer · UI/UX & Graphic Designer · Full-Stack MERN Developer in progress
+Front-End Developer · UI/UX & Graphic Designer · Next JS Full-Stack Developer
 
 - GitHub: [@EslamTaha-Dev](https://github.com/EslamTaha-Dev)
 
