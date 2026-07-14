@@ -16,7 +16,7 @@ const HighLight = () => {
         opacity: 1,
         stagger: 0.5,
         ease: "power1.inOut",
-        duration: 1,
+        duration: 2,
       });
     },
     { dependencies: [isMobile] },
